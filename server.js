@@ -10,8 +10,7 @@ let app = express();
 
 //connect to mongoDB
 const dbURI =
-  "mongodb+srv://CipAriana:Ariana80.@cluster0.tl9rel7.mongodb.net/javascripcip?retryWrites=true&w=majority";
-mongoose
+ 
   .connect(dbURI)
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
