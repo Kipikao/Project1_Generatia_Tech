@@ -11,7 +11,7 @@ include('./components/partials/header') %>
         <form
           class="contact-form"
           action="/qtn/answer/<%= qtn._id %>"
-          method="post"
+          method="POST"
         >
           <p class="h2">Date de contact</p>
 
@@ -79,7 +79,7 @@ include('./components/partials/header') %>
           </div>
         </form>
 
-        <form action="/qtn/admin/<%= qtn._id %>" method="post">
+        <form action="/qtn/admin/<%= qtn._id %>" method="POST">
           <div class="btnSubmit">
             <button type="submit" class="btnDanger" id="btnDanger">
               sterge

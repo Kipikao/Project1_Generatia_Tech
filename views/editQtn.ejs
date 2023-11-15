@@ -8,7 +8,11 @@ include('./components/partials/header') %>
   <section>
     <div class="container">
       <div class="form-container">
-        <form class="contact-form" action="/qtn/edit/<%= qtn._id %>" method="post">
+        <form
+          class="contact-form"
+          action="/qtn/edit/<%= qtn._id %>"
+          method="POST"
+        >
           <p class="h2">Date de contact</p>
           <input
             type="text"
@@ -45,35 +49,21 @@ include('./components/partials/header') %>
           />
           <p class="h2">Alege domeniul de interes</p>
           <label for="descriptionCategori">
-            <input
-              type="radio"
-              name="descriptionCategori"
-              id="descriptionCategori"
-              value="Mecanica"
-              <%= qtn.descriptionCategori == "Mecanica" ?  "checked" : false %>
-              required
-              
-            />Mecanica</label
-          >
+            <input type="radio" name="descriptionCategori"
+            id="descriptionCategori" value="Mecanica" <%=
+            qtn.descriptionCategori == "Mecanica" ? "checked" : false %>
+            required />Mecanica
+          </label>
           <label for="descriptionCategori">
-            <input
-              type="radio"
-              name="descriptionCategori"
-              id="descriptionCategori"
-              value="Electric"
-              <%= qtn.descriptionCategori == "Electric" ? "checked" : false  %>
-              required
-            />Electrica</label
-          >
+            <input type="radio" name="descriptionCategori"
+            id="descriptionCategori" value="Electric" <%=
+            qtn.descriptionCategori == "Electric" ? "checked" : false %>
+            required />Electrica
+          </label>
           <label for="descriptionCategori">
-            <input
-              type="radio"
-              name="descriptionCategori"
-              id="descriptionCategori"
-              value="Altele"
-              <%= qtn.descriptionCategori == "Altele" ? "checked" : false %>
-              required
-            />Altele</label
+            <input type="radio" name="descriptionCategori"
+            id="descriptionCategori" value="Altele" <%= qtn.descriptionCategori
+            == "Altele" ? "checked" : false %> required />Altele</label
           >
           <p class="h2">Ce problema aveti?</p>
 
@@ -92,44 +82,32 @@ include('./components/partials/header') %>
             cols="30"
             rows="10"
             placeholder="Descrie mai amanuntit problema cu care te confrunti..."
-            required
-          ><%= qtn.detailProblem %></textarea>
+            required><%= qtn.detailProblem %>
+          </textarea>
           <p class="h2">Poti adauga si imagini cu defectele</p>
           <input type="file" name="imgError" id="imgError" value="<%= %>" />
           <label for="termAndCondition">
-            <input
-              type="checkbox"
-              name="termAndCondition"
-              id="termAndCondition"
-              <%= qtn.termAndCondition = "on" ? "checked" : false %>
-              required
-            />Accepti termenii si conditiile companiei noastre</label
-          >
+            <input type="checkbox" name="termAndCondition" id="termAndCondition"
+            <%= qtn.termAndCondition = "on" ? "checked" : false %> required
+            />Accepti termenii si conditiile companiei noastre
+          </label>
           <label for="confidential">
-            <input
-              type="checkbox"
-              name="confidential"
-              id="confidential"
-              <%= qtn.confidential = "on" ? "checked" : false %>
-              required
-            />Accepti prelucrarea datelor cu caracter personal</label
+            <input type="checkbox" name="confidential" id="confidential" <%=
+            qtn.confidential = "on" ? "checked" : false %> required />Accepti
+            prelucrarea datelor cu caracter personal</label
           >
           <div class="btnSubmit">
-           
-              <button
-                class="cancelEdit"
-                id="cancelEdit"
-              > <a href="/">
-                anuleaza</a>
-              </button>
-            
+            <button class="cancelEdit" id="cancelEdit">
+              <a href="/"> anuleaza</a>
+            </button>
+
             <button
               type=""
               value="trimite modificarea"
               class="btnDanger"
               id="btnDanger"
-            ><a href="#">sterge</a>
-              
+            >
+              <a href="#">sterge</a>
             </button>
 
             <button
