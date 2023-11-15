@@ -1,0 +1,149 @@
+<%- include('./components/partials/head.ejs') %> <%-
+include('./components/partials/header') %>
+<body>
+  <section class="sectionTop backgroundimg-edit">
+    <p class="h1Top">editare formular</p>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="form-container">
+        <form class="contact-form" action="/qtn/edit/<%= qtn._id %>" method="post">
+          <p class="h2">Date de contact</p>
+          <input
+            type="text"
+            placeholder="Numele tau"
+            name="name"
+            id="name"
+            value="<%= qtn.name %>"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Introdu adresa email..."
+            value="<%= qtn.email %>"
+            required
+          />
+          <p class="h2">Date despre autoturism</p>
+          <textarea
+            name="aboutCar"
+            id="aboutCar"
+            cols="30"
+            rows="10"
+            placeholder="<%= qtn.aboutCar %>"
+            required
+          ><%= qtn.aboutCar %></textarea>
+          <p class="h2">Sau poti adauga talon auto</p>
+          <input
+            type="file"
+            name="carRegistration"
+            id="carRegistration"
+            placeholder="Int"
+            value="<%= qtn.carRegistration %>"
+          />
+          <p class="h2">Alege domeniul de interes</p>
+          <label for="descriptionCategori">
+            <input
+              type="radio"
+              name="descriptionCategori"
+              id="descriptionCategori"
+              value="Mecanica"
+              <%= qtn.descriptionCategori == "Mecanica" ?  "checked" : false %>
+              required
+              
+            />Mecanica</label
+          >
+          <label for="descriptionCategori">
+            <input
+              type="radio"
+              name="descriptionCategori"
+              id="descriptionCategori"
+              value="Electric"
+              <%= qtn.descriptionCategori == "Electric" ? "checked" : false  %>
+              required
+            />Electrica</label
+          >
+          <label for="descriptionCategori">
+            <input
+              type="radio"
+              name="descriptionCategori"
+              id="descriptionCategori"
+              value="Altele"
+              <%= qtn.descriptionCategori == "Altele" ? "checked" : false %>
+              required
+            />Altele</label
+          >
+          <p class="h2">Ce problema aveti?</p>
+
+          <input
+            type="text"
+            name="summaryQtn"
+            id="summaryQtn"
+            placeholder="Ex. Nu porneste...."
+            value="<%= qtn.summaryQtn%>"
+            required
+          />
+          <p class="h2">Adauga mai multe detalii</p>
+          <textarea
+            name="detailProblem"
+            id="detailProblem"
+            cols="30"
+            rows="10"
+            placeholder="Descrie mai amanuntit problema cu care te confrunti..."
+            required
+          ><%= qtn.detailProblem %></textarea>
+          <p class="h2">Poti adauga si imagini cu defectele</p>
+          <input type="file" name="imgError" id="imgError" value="<%= %>" />
+          <label for="termAndCondition">
+            <input
+              type="checkbox"
+              name="termAndCondition"
+              id="termAndCondition"
+              <%= qtn.termAndCondition = "on" ? "checked" : false %>
+              required
+            />Accepti termenii si conditiile companiei noastre</label
+          >
+          <label for="confidential">
+            <input
+              type="checkbox"
+              name="confidential"
+              id="confidential"
+              <%= qtn.confidential = "on" ? "checked" : false %>
+              required
+            />Accepti prelucrarea datelor cu caracter personal</label
+          >
+          <div class="btnSubmit">
+           
+              <button
+                class="cancelEdit"
+                id="cancelEdit"
+              > <a href="/">
+                anuleaza</a>
+              </button>
+            
+            <button
+              type=""
+              value="trimite modificarea"
+              class="btnDanger"
+              id="btnDanger"
+            ><a href="#">sterge</a>
+              
+            </button>
+
+            <button
+              type="submit"
+              value="trimite modificarea"
+              class="sendEdit"
+              id="sendEdit"
+            >
+              trimite modificarea
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+<%- include('./components/partials/footer') %>

@@ -1,0 +1,57 @@
+<%- include('./components/partials/head.ejs') %> <%-
+include('./components/partials/header') %>
+<body>
+  <section class="sectionTop backgroundimg-index">
+    <p class="h1Top">
+      pentru a te putea ajuta cu defectiunile masini, adreseaza o intrebare
+    </p>
+  </section>
+
+  <button class="addQuestion"><a href="qtn/add">Adauga intrebare</a></button>
+
+  <section class="sectionLinkAccess">
+    <div class="linkAccess">
+      <p class="accessLink">mecanica</p>
+    </div>
+    <div class="linkAccess1">
+      <p class="accessLink">electric</p>
+    </div>
+    <div class="linkAccess2">
+      <p class="accessLink">altele</p>
+    </div>
+  </section>
+
+  <section class="container-table">
+    <table>
+      <!-- <th>Categorie</th>
+      <th>Ce problema aveti?</th>
+      <th>Descriere problema</th>
+      <th><span>view</span></th>
+      <th><span>edit</span></th> -->
+      
+<% qtns.forEach((qtn) => { %>
+
+  <tr>
+    <td class="borderLeft"><%= qtn.descriptionCategori %></td>
+    <td><%= qtn.summaryQtn %></td>
+    <td><%= qtn.detailProblem %></td>
+    <td class="viewtd">
+      <a href="/qtn/view/<%= qtn._id %>"
+        ><img src="/img/view-files-svgrepo-com.svg" alt="view single" />
+      </a>
+    </td>
+    <td>
+      <a href="/qtn/edit/<%= qtn._id %>"
+        ><img src="/img/edit-files-icon.svg" alt="edit qtn"
+      /></a>
+    </td>
+  </tr>
+
+  
+<% }); %>
+  
+     
+    </table>
+  </section>
+</body>
+<%- include('./components/partials/footer') %>

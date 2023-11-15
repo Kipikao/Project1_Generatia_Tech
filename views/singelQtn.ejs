@@ -1,0 +1,69 @@
+<%- include('./components/partials/head.ejs') %> <%-
+include('./components/partials/header') %>
+<body>
+  <section class="sectionTop backgroundimg-singel">
+    <p class="h1Top"><%= qtn.summaryQtn %></p>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="form-container">
+        <form class="contact-form">
+          <p class="h2">Date de contact</p>
+
+          <dl>
+            <dt>Nume</dt>
+            <dd><%= qtn.name %></dd>
+          </dl>
+          <dl>
+            <dt>Email</dt>
+            <dd><%= qtn.email %></dd>
+          </dl>
+
+          <p class="h2">Date despre autoturism</p>
+          <dl>
+            <dt>Date introduse</dt>
+            <dd><%= qtn.aboutCar ? qtn.aboutCar : '-' %></dd>
+          </dl>
+
+          <dl>
+            <dt>Talon</dt>
+            <dd><%= qtn.carRegistration ? qtn.carRegistration : '-' %></dd>
+          </dl>
+
+          <p class="h2">Domeniul ales</p>
+
+          <dl>
+            <dt><%= qtn.descriptionCategori ? qtn.descriptionCategori : '-' %></dt>
+            
+          </dl>
+          
+          <p class="h2">Ce problema aveti?</p>
+
+          <p class="showdetail"><%= qtn.summaryQtn ? qtn.summaryQtn : '-' %></p>
+         
+          <p class="h2">Detalii defectiune</p>
+
+          <p class="showdetail"><%= qtn.detailProblem ? qtn.detailProblem : '-' %></p>
+          
+          <p class="h2">Imagini cu defectele</p>
+          <p class="showdetail"><%= qtn.imgError ? qtn.imgError : '-' %></p>
+
+          <p class="h2">Detalii defectiune</p>
+          <p class="showdetail"><%= qtn.detailProblem ? qtn.detailProblem : '-' %></p>        
+          
+          <div class="btnSubmit">
+            <button class="cancelEdit" id="cancelEdit">
+              <a href="/"> inapoi</a>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</body>
+<%- include('./components/partials/footer') %>
+    
+   
+    

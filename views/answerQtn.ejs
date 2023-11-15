@@ -1,0 +1,115 @@
+<%- include('./components/partials/head.ejs') %> <%-
+include('./components/partials/header') %>
+<body>
+  <section class="sectionTop backgroundimg-answer">
+    <p class="h1Top">administrare</p>
+  </section>
+
+  <section class="answerStyle">
+    <div class="container">
+      <div class="form-container">
+        <form
+          class="contact-form"
+          action="/qtn/answer/<%= qtn._id %>"
+          method="post"
+        >
+          <p class="h2">Date de contact</p>
+
+          <dl>
+            <dt>Nume</dt>
+            <dd><%= qtn.name %></dd>
+          </dl>
+          <dl>
+            <dt>Email</dt>
+            <dd><%= qtn.email %></dd>
+          </dl>
+
+          <p class="h2">Date despre autoturism</p>
+          <dl>
+            <dt>Date introduse</dt>
+            <dd><%= qtn.aboutCar ? qtn.aboutCar : '-' %></dd>
+          </dl>
+
+          <dl>
+            <dt>Talon</dt>
+            <dd><%= qtn.carRgistration ? qtn.carRgistration : '-' %></dd>
+          </dl>
+
+          <p class="h2">Domeniul ales</p>
+
+          <dl>
+            <dt>
+              <%= qtn.descriptionCategori ? qtn.descriptionCategori : '-' %>
+            </dt>
+          </dl>
+
+          <p class="h2">Ce problema aveti?</p>
+          <p class="showdetail"><%= qtn.summaryQtn ? qtn.summaryQtn : '-' %></p>
+
+          <p class="h2">Detalii defectiune</p>
+          <p class="showdetail">
+            <%= qtn.detailProblem ? qtn.detailProblem : '-' %>
+          </p>
+
+          <p class="h2">Imagini cu defectele</p>
+          <p class="showdetail"><%= qtn.imgError ? qtn.imgError : '-' %></p>
+
+          <p class="h2">Detalii defectiune</p>
+          <p class="showdetail">
+            <%= qtn.detailProblem ? qtn.detailProblem : '-' %>
+          </p>
+
+          <p class="h2">Raspuns</p>
+          <textarea
+            name="answer"
+            id="answer"
+            cols="30"
+            rows="10"
+            placeholder="Descrie mai amanuntit problema cu care te confrunti..."
+          ><%= qtn.answer %></textarea>
+
+          <div class="btnSubmit">
+            <button type="submit" class="sendEdit" id="sendEdit">
+              raspuns
+            </button>
+
+            <button class="cancelEdit" id="cancelEdit">
+              <a href="/qtn/admin"> anuleaza</a>
+            </button>
+          </div>
+        </form>
+
+        <form action="/qtn/admin/<%= qtn._id %>" method="post">
+          <div class="btnSubmit">
+            <button type="submit" class="btnDanger" id="btnDanger">
+              sterge
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-table">
+    <table>
+      <th>Categorie</th>
+      <th>Ce problema aveti?</th>
+      <th>Raspuns</th>
+      <th><span>view</span></th>
+
+      <% qtns.forEach( qtn => { %>
+      <tr>
+        <td><%= qtn.descriptionCategori %></td>
+        <td><%= qtn.summaryQtn %></td>
+        <td><%= qtn.answer ? qtn.answer : "-" %></td>
+        <td class="viewtd">
+          <a href="/qtn/answer/<%= qtn._id %>"
+            ><img src="/img/answer-svgrepo-com.svg" alt="edit answer" />
+          </a>
+        </td>
+      </tr>
+      <% }); %>
+    </table>
+  </section>
+</body>
+<%- include('./components/partials/footer') %>

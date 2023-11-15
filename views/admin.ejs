@@ -1,0 +1,40 @@
+<%- include('./components/partials/head.ejs') %> <%-
+include('./components/partials/header') %>
+<body>
+  <section class="sectionTop backgroundimg-answer">
+    <p class="h1Top">administrare</p>
+  </section>
+
+  <section class="answerStyle">
+    <div class="container">
+      <div class="form-container">
+        
+          <p class="admin">Administrare raspunsuri</p>
+          </div>
+          </div>
+          </section>
+         
+  <section class="container-table">
+    <table>
+      <th>Categorie</th>
+      <th>Ce problema aveti?</th>
+      <th>Raspuns</th>
+      <th><span>view</span></th>
+      
+
+      <% qtns.forEach(qtn => { %>
+      <tr>
+        <td><%= qtn.descriptionCategori %></td>
+        <td><%= qtn.summaryQtn %></td>
+        <td><%= qtn.answer ? qtn.answer : 'Asteapta raspuns' %></td>
+        <td class="viewtd">
+          <a href="/qtn/answer/<%= qtn._id %>"
+            ><img src="/img/answer-svgrepo-com.svg" alt="edit answer" />
+          </a>
+        </td>
+      </tr>
+     <% }); %>
+    </table>
+  </section>
+</body>
+<%- include('./components/partials/footer') %>

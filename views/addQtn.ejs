@@ -1,0 +1,126 @@
+<%- include('./components/partials/head.ejs') %> 
+<%- include('./components/partials/header') %>
+<body>
+  <section class="sectionTop backgroundimg-add">
+    <p class="h1Top">
+      Completeaza formularul de mai jos pentru a cere o parere
+    </p>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="form-container">
+        <form class="contact-form" action="/qtn/add" method="post" enctype="multipart/form-data">
+          <p class="h2">Date de contact</p>
+          <input
+            type="text"
+            placeholder="Numele tau"
+            name="name"
+            id="name"
+            value=""
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Introdu adresa email..."
+            value=""
+            required
+          />
+          <p class="h2">Date despre autoturism</p>
+          <textarea
+            name="aboutCar"
+            id="aboutCar"
+            cols="30"
+            rows="10"
+            placeholder="Date despre autoturism..."
+            value=""
+            required
+          ></textarea>
+          <p class="h2">Sau poti adauga talon auto</p>
+          <input
+            type="file"
+            name="carRegistration"
+            id="carRegistration"
+            placeholder="Int"
+            value=""
+          />
+          <p class="h2">Alege domeniul de interes</p>
+          <label for="descriptionCategori">
+            <input
+              type="radio"
+              name="descriptionCategori"
+              id="descriptionCategori"
+              value="Mecanica"
+              required
+            />Mecanica</label
+          >
+          <label for="descriptionCategori">
+            <input
+              type="radio"
+              name="descriptionCategori"
+              id="descriptionCategori"
+              value="Electric"
+              required
+            />Electrica</label
+          >
+          <label for="descriptionCategori">
+            <input
+              type="radio"
+              name="descriptionCategori"
+              id="descriptionCategori"
+              value="Altele"
+              required
+            />Altele</label
+          >
+          <p class="h2">Ce problema aveti?</p>
+
+          <input
+            type="text"
+            name="summaryQtn"
+            id="summaryQtn"
+            placeholder="Ex. Nu porneste...."
+            required
+          />
+          <p class="h2">Adauga mai multe detalii</p>
+          <textarea
+            name="detailProblem"
+            id="detailProblem"
+            cols="30"
+            rows="10"
+            placeholder="Descrie mai amanuntit problema cu care te confrunti..."
+            value=""
+            required
+          ></textarea>
+          <p class="h2">Poti adauga si imagini cu defectele</p>
+          <input type="file" name="imgError" id="imgError" value="" />
+          <label for="termAndCondition">
+            <input
+              type="checkbox"
+              name="termAndCondition"
+              id="termAndCondition"
+              required
+            />Accepti termenii si conditiile companiei noastre</label
+          >
+          <label for="confidential">
+            <input
+              type="checkbox"
+              name="confidential"
+              id="confidential"
+              required
+            />Accepti prelucrarea datelor cu caracter personal</label
+          >
+
+          <input
+            type="submit"
+            value="trimite intrebarea"
+            class="send1"
+            id="mesaj"
+          />
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+<%- include('./components/partials/footer') %>
