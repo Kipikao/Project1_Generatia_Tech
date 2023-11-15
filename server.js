@@ -9,8 +9,8 @@ import Qtn from "./model/qtn.js";
 let app = express();
 
 //connect to mongoDB
-const dbURI =
- 
+const dbURI = "link to mongoDb"
+ mongoose
   .connect(dbURI)
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
